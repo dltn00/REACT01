@@ -398,9 +398,7 @@ footer nav {
     display: block;
 }
 
-.hamberger-click.active>.hamberger-nav {
-    /* transform: none; */
-}
+
 
 .hamberger-nav>div {
     display: flex;

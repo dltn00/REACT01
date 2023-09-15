@@ -6,10 +6,17 @@ import './css/index.css';
 
 import image from './image/usp_a.jpg';
 import State from './State';
+import EventEdu from './EventEdu';
+import { useState } from 'react';
+
+
 
 
 
 function App() {
+    
+const [heading, setHeading] = useState(`24시간 언제나`);    
+
   return (
     <div className='apps'>
       <header>
@@ -74,7 +81,9 @@ function App() {
     <main>
         <section id="advantages-container">
             <div className="advantage">
-                <h2>24시간 언제나</h2>
+            <h2 onClick={()=>{
+                    setHeading('클릭된 제목입니다')
+                }}>{heading}</h2>
                 <p>
                     한밤중이나 주말에도 스마트폰으로
                     <br />
@@ -278,6 +287,7 @@ function App() {
         <p>쏘카 앱 다운로드</p>
     </section>
     <State></State>
+    <EventEdu></EventEdu>
 
 </div>
 

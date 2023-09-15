@@ -27,7 +27,7 @@ export default function State() {
         {/* <p className='count-place'>0</p>
         
         <button className='up-button' onClick=Z{countIncress}>올려</button> */}
-        asdasd수정수정
+        
         {카운트}
         <button onClick={ () => { 카운트수정해주는함수(카운트 + 10) }}>올려</button>
 
