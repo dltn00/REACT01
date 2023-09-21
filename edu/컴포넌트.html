@@ -7,22 +7,52 @@
 </head>
 <body>
     <!-- 
-        리액트 컴포넌트
 
-        반복되는 개체들을 묶어놓은것
-     -->
+    리액트 컴포넌트
+
+    반복되는 개체들을 묶어놓은것
+ -->
+
+ <div>
+    <img src="" alt="">
+    <p>상품명</p>
+    <div>
+        <p>할인율</p>
+        <p>원가</p>
+    </div>
+    <p>실제가격</p>
+    <p>도착예정일</p>
+    <div>최대 얼마 적립</div>
+ </div>
+
+ <script>
+    // 바닐라일때 만드는 법
+    const imgTag = document.createElement('img');
+    imgTag.setAttribute('src','경로')
+    imgTag.setAttribute('alt','대체텍스트')
     
-     <div>
-        <img src="" alt="">
-        <p>상품명</p>
-        <div>
-            <p>할인율</p>
-            <p>원가</p>
-        </div>
-        <p>실제가격</p>
-        <p>도착예정일</p>
-        <div>최대 얼마 적립</div>
-     </div>
+    const costContainer = document.createElement('div');
+    const costPer = document.createElement('p');
+    const costOrigin = document.createElement('p');
 
+    costContainer.appendChild(costPer);
+    costContainer.appendChild(costOrigin);
+
+
+
+
+
+ </script>
+
+ <!-- 
+    리액트에서는 반복되는 컨텐츠들을 별도의 파일로 분리해서 작성한다
+    분리된 파일(개체)가 컴포넌트이다.
+-->
+
+<!-- 
+    편리한 작성을 위해 extention -> react 검색해서
+    ES7+ React/Redux/React-Native snippets
+    설치
+ -->
 </body>
 </html>

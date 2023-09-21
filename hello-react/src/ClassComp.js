@@ -1,12 +1,18 @@
-import React from "react";
+import React, { Component } from 'react'
 
-export default class className extends Comment {
+export default class ClassComp extends Component {
 
-
-
-    render() {
-        return (
-            <div>ClassComp</div>
-        )
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+        속성1 : 0,
+        속성2 : 10
+    };
+  }
+  
+  render() {
+    return (
+      <div>ClassComp</div>
+    )
+  }
 }

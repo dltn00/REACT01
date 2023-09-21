@@ -8,18 +8,58 @@ import image from './image/usp_a.jpg';
 import State from './State';
 import EventEdu from './EventEdu';
 import { useState } from 'react';
-
+import ClassComp2 from './ClassComp2'
+import PropsFunComp from './PropsFunComp';
+import ForComp from './ForComp';
+import MeatLove from './MeatLove';
 
 
 
 
 function App() {
-    
-const [heading, setHeading] = useState(`24시간 언제나`);    
 
+    const [heading, setHeading] = useState('24시간 언제나')
+    
+    const 반복컴포넌트 = [];
+
+    const 고기목록 = ['닭','소','돼지','양','오리','물']
+
+    for(let i = 0 ; i < 10 ; i ++) {
+        반복컴포넌트.push(<ForComp index={i+1}></ForComp>);
+    }
+
+    let test = '';
+
+    // const 고기맵 = 고기목록.map((고기)=>{ 
+    //     return(
+    //         <MeatLove 고기종류={고기}></MeatLove>
+    //         )
+    // })
+
+
+    const 고기맵 = 고기목록.map((고기)=>
+        <MeatLove 고기종류={고기}></MeatLove>
+    )
+    console.log(고기맵);
+
+
+
+
+    const 고기반복문 = [];
+    for(let i = 0 ; i <고기목록.length ; i ++) {
+        고기반복문.push(<MeatLove 고기종류={고기목록[i]}></MeatLove>);
+    }
+
+
+    console.log(test);
+    
+
+    
+    
   return (
     <div className='apps'>
       <header>
+        
         <div className="header-inner">
             <h1>
                 <a href="#"><span className="hidden">SOCAR</span></a>
@@ -78,10 +118,37 @@ const [heading, setHeading] = useState(`24시간 언제나`);
             모든 순간, 쏘카
         </h2>
     </section>
+    <hr />
+    <hr />
+    <hr />
+    <EventEdu></EventEdu>
+    <hr />
+    <hr />
+    <hr />
+    <ClassComp2></ClassComp2>
+    <PropsFunComp 이름="홍길동" 생년월일="12"></PropsFunComp>
+    <PropsFunComp 이름="김영희" 생년월일="144"></PropsFunComp>
+    <PropsFunComp 이름="박철수" 생년월일="1113"></PropsFunComp>
+    <PropsFunComp 이름="고길동" 생년월일="14134"></PropsFunComp>
+
+    <MeatLove 고기종류={고기목록[0]}></MeatLove>
+    <MeatLove 고기종류={고기목록[1]}></MeatLove>
+    <MeatLove 고기종류={고기목록[2]}></MeatLove>
+    <MeatLove 고기종류={고기목록[3]}></MeatLove>
+    <MeatLove 고기종류={고기목록[4]}></MeatLove>
+    <MeatLove 고기종류={고기목록[5]}></MeatLove>
+    {반복컴포넌트}
+
+    {
+        고기목록.map((고기,index)=>
+        <MeatLove 고기종류={고기} 순서={index}></MeatLove>)
+    }
+
+    {/* 배열.map(처리방법) */}
     <main>
         <section id="advantages-container">
             <div className="advantage">
-            <h2 onClick={()=>{
+                <h2 onClick={()=>{
                     setHeading('클릭된 제목입니다')
                 }}>{heading}</h2>
                 <p>
@@ -235,7 +302,9 @@ const [heading, setHeading] = useState(`24시간 언제나`);
                 <a href="#" className="important-information">개인정보처리방침</a>
                 <a href="#" className="important-information">위치정보 이용약관</a>
                 <a href="#" className="important-information">차량손해면책제도</a>
-                <a href="#">고객센터</a>
+                <a href="#">고객센터</a>import ClassComp2 from './ClassComp2';
+import PropsFunComp from './PropsFunComp';
+
                 <a href="#">제휴 문의</a>
             </nav>
             <div className="information">
@@ -287,7 +356,6 @@ const [heading, setHeading] = useState(`24시간 언제나`);
         <p>쏘카 앱 다운로드</p>
     </section>
     <State></State>
-    <EventEdu></EventEdu>
 
 </div>
 
