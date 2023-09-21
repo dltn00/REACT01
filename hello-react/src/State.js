@@ -16,9 +16,15 @@ export default function State() {
     const [카운트, 카운트수정해주는함수] = useState(0);
     const [isOn, setInOn] = useState(false);
 
+    const [yourInput, setYourInput] = useState('ㅎㅇㅎㅇ');
+
     function changeToggle(){
         setInOn(!isOn);
         console.log(`isOn : ${isOn}`)
+    }
+
+    const handleInputChange = (event) => {
+      setYourInput(event.target.value);
     }
 
 
@@ -27,7 +33,7 @@ export default function State() {
         {/* <p className='count-place'>0</p>
         
         <button className='up-button' onClick=Z{countIncress}>올려</button> */}
-        
+        asdasd수정수정
         {카운트}
         <button onClick={ () => { 카운트수정해주는함수(카운트 + 10) }}>올려</button>
 
@@ -37,10 +43,10 @@ export default function State() {
 
         {/* 숙제 */}
         {/* 인풋에 글씨를 입력하면 */}
-       <input type="text" />
+       <input type="text"  onChange={handleInputChange}/>
        {/* p태그 안에 입력한 텍스트가 그대로 출력되게 만들어주세요*/}
         <p className="your-input">
-            당신의 입력 : {}
+            당신의 입력 : {yourInput}
         </p>       
     </div>
   )
