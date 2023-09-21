@@ -12,6 +12,7 @@ import ClassComp2 from './ClassComp2'
 import PropsFunComp from './PropsFunComp';
 import ForComp from './ForComp';
 import MeatLove from './MeatLove';
+import LoginCheck from './LoginCheck';
 
 
 
@@ -55,7 +56,7 @@ function App() {
     
 
     
-    
+    const [isLoggedIn] = true;
   return (
     <div className='apps'>
       <header>
@@ -143,6 +144,11 @@ function App() {
         고기목록.map((고기,index)=>
         <MeatLove 고기종류={고기} 순서={index}></MeatLove>)
     }
+
+    <LoginCheck 로그인여부={isLoggedIn}></LoginCheck>
+    <button onClick={()=>{
+        setIsLoggedIn(!isLoggedIn)
+    }}>{isLoggedIn ? `로그아웃` : `로그인`}</button>
 
     {/* 배열.map(처리방법) */}
     <main>
