@@ -55,10 +55,24 @@ function App() {
     console.log(test);
     
 
+    const [isChecked,setIsChecked] = useState(true);
+    const [isLoggedIn , setIsLoggedIn] = useState(false)
+
+    const [로딩목록,set로딩목록] = useState([]);
+    const 로딩컨텐츠 = <p>로딩중..
+    </p>;
+
+    function handleAddLoading(){
+        set로딩목록([...로딩목록,로딩컨텐츠])
+        
+    }
+
+
     
-    const [isLoggedIn] = true;
   return (
+
     <div className='apps'>
+
       <header>
         
         <div className="header-inner">
@@ -73,7 +87,7 @@ function App() {
                         <g>
                             <path className="st0"
                                 d="M45.5,0.8C37,0.8,30,7.7,30,16.3c0,8.5,6.9,15.5,15.5,15.5s15.4-7,15.4-15.5C60.9,7.7,54,0.8,45.5,0.8z
-                            M45.5,25.2c-4.9,0-8.9-4-8.9-8.9s4-8.9,8.9-8.9s8.9,4,8.9,8.9C54.4,21.2,50.4,25.2,45.5,25.2z" />
+                                M45.5,25.2c-4.9,0-8.9-4-8.9-8.9s4-8.9,8.9-8.9s8.9,4,8.9,8.9C54.4,21.2,50.4,25.2,45.5,25.2z" />
                             <g>
                                 <path className="st0" d="M8.2,9.4c0-3.6,9.4-3.6,11.4,1l5.3-3C23.5,3.9,18.2,0.8,13,0.8C6.8,0.8,1.6,4,1.6,9.7
                                 c0,6.4,7.4,8.1,10.5,8.8s7.2,1.4,7.2,3.9c0,2.4-2.7,3.2-5.6,3.2c-3.7,0-6.6-1.2-7.9-4.1l-5,2.9c1.6,4.5,6.7,7.3,12.8,7.3
@@ -81,7 +95,7 @@ function App() {
                             </g>
                             <path className="st0"
                                 d="M89,19.6L89,19.6L89,19.6c-1.3,3.3-4.2,5.6-8,5.6c-4.9,0-8.8-4-8.8-9c0-4.9,3.8-9,8.8-9c3.6,0,6.6,2,8,5.1
-                            l0,0l5.8-3.4C92.4,4.1,87,0.8,81,0.8c-8.5,0-15.5,6.9-15.5,15.5S72.4,31.8,81,31.8c6.1,0,11.3-3.6,13.8-8.7L89,19.6z" />
+                                l0,0l5.8-3.4C92.4,4.1,87,0.8,81,0.8c-8.5,0-15.5,6.9-15.5,15.5S72.4,31.8,81,31.8c6.1,0,11.3-3.6,13.8-8.7L89,19.6z" />
                             <polygon className="st0"
                                 points="116.4,1.6 109.1,1.6 97.2,30.9 104.7,30.9 112.8,9.9 121.1,30.9 128.6,30.9 		" />
                             <path className="st0" d="M153,20.2l0.6-0.3c2.9-1.7,4.5-4.7,4.5-8.1c0-6-4.4-10.2-10.7-10.2h-14.2v29.3h6.7v-9.4h6.5l5.4,9.4h7.5
@@ -97,6 +111,7 @@ function App() {
                 <div>
                     <a href="#">이용 안내</a>
                     <a href="#">요금 안내</a>
+                            
                     <a href="#">혜택 안내</a>
                     <a href="#">쏘카존 개설 신청</a>
                 </div>
@@ -119,10 +134,14 @@ function App() {
             모든 순간, 쏘카
         </h2>
     </section>
+
+    <button onClick={()=>{setIsChecked(!isChecked)}}>체크체크</button>
+
+
     <hr />
     <hr />
     <hr />
-    <EventEdu></EventEdu>
+    {isChecked ? <EventEdu></EventEdu>: ''}
     <hr />
     <hr />
     <hr />
@@ -145,12 +164,36 @@ function App() {
         <MeatLove 고기종류={고기} 순서={index}></MeatLove>)
     }
 
+{/* 로그인 버튼을 누르면 컴포넌트 내의 문구가 바뀌고, 버튼도 로그아웃 버튼으로 변하게. */}
+{/* 로그아웃버튼을 눌렀을때도 컴포넌트의 문구가 바뀌며 버튼은 로그인 버튼으로 바뀌게 */}
     <LoginCheck 로그인여부={isLoggedIn}></LoginCheck>
     <button onClick={()=>{
         setIsLoggedIn(!isLoggedIn)
-    }}>{isLoggedIn ? `로그아웃` : `로그인`}</button>
+    }}>{isLoggedIn ? '로그아웃' : '로그인'}</button>
+
+
+    <button onClick={handleAddLoading}>불러오기</button>
+    {로딩목록}
+
+    {/* 불러오기 버튼을 누르면? */}
+
+    
+ 
+    {/* 로딩중.. */}
+    {/* 로딩이 완료되었습니다. */}
+  
+
+    {/* setTimeout과 useState 이용해서 만들어보도록 합시다! */}
+
+
+
+
+
+
 
     {/* 배열.map(처리방법) */}
+
+
     <main>
         <section id="advantages-container">
             <div className="advantage">
@@ -310,6 +353,7 @@ function App() {
                 <a href="#" className="important-information">차량손해면책제도</a>
                 <a href="#">고객센터</a>import ClassComp2 from './ClassComp2';
 import PropsFunComp from './PropsFunComp';
+import LoginCheck from './LoginCheck';
 
                 <a href="#">제휴 문의</a>
             </nav>
